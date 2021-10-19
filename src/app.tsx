@@ -1,5 +1,7 @@
 import { CssBaseline } from "@mui/material";
+import PageLoading from "components/page_loading/page_loading.component";
 import { loadStoreProvider } from "drivers/loader";
+import { Suspense } from "react";
 
 import AppRoute from "routes/app.routes";
 import routes from "routes/routes";
@@ -10,9 +12,11 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <StoreProvider>
-        <AppRoute routes={routes} />
-      </StoreProvider>
+      <Suspense fallback={<PageLoading />}>
+        <StoreProvider>
+          <AppRoute routes={routes} />
+        </StoreProvider>
+      </Suspense>
     </>
   );
 }

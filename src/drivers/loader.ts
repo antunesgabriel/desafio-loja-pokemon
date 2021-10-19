@@ -7,7 +7,7 @@ const getHostname = function () {
 const loadSite = () => {
   const hostname = `${getHostname()}.json`;
   try {
-    return require("@config/sites/" + hostname);
+    return require("configs/sites/" + hostname);
   } catch (e) {
     console.error(`ERROR: there is no site configured for domain ${hostname}`);
     return {};

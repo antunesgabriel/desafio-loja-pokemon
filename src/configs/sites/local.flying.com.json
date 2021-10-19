@@ -1,6 +1,6 @@
 {
   "path": "flying",
   "storeName": "FlyingStore",
-  "baseApiUrl": "https://pokeapi.co/api/v2/type/",
+  "baseApiUrl": "https://pokeapi.co/api/v2/",
   "type": "flying"
 }

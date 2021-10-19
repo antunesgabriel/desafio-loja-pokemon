@@ -1,7 +1,8 @@
 import axios from "axios";
+import { site } from "drivers/loader";
 
 const client = axios.create({
-  baseURL: process.env.REACT_APP_API,
+  baseURL: site.baseApiUrl,
 });
 
 export default client;

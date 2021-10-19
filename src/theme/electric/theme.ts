@@ -51,12 +51,12 @@ const theme = createTheme({
     },
     h6: {
       fontWeight: "bold",
-      fontSize: "2.625rem",
-      lineHeight: "3.25rem",
+      fontSize: "2rem",
+      lineHeight: "3rem",
     },
     subtitle1: {
       fontWeight: 600,
-      fontSize: "1.5rem",
+      fontSize: "1.2rem",
       lineHeight: "2rem",
     },
     subtitle2: {

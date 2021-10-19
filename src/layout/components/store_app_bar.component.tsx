@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, FC } from "react";
 import {
   alpha,
   AppBar,
@@ -50,22 +50,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const StoreAppBar = () => {
+const StoreAppBar: FC<{ showSearchBar?: boolean }> = ({ showSearchBar }) => {
   const { site } = useSDK();
 
   return (
-    <AppBar position="static" elevation={0}>
+    <AppBar position="sticky" elevation={0}>
       <Toolbar>
         <Typography variant="h6">{site.storeName}</Typography>
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Pesquisar..."
-            inputProps={{ "aria-label": "pesquisar por pokemon" }}
-          />
-        </Search>
+        {showSearchBar && (
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Pesquisar..."
+              inputProps={{ "aria-label": "pesquisar por pokemon" }}
+            />
+          </Search>
+        )}
         <Box sx={{ ml: 3, color: "primary.contrastText" }}>
           <IconButton
             aria-label="abrir sacola"

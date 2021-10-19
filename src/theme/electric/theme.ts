@@ -21,6 +21,7 @@ const theme = createTheme({
     common: {
       white: "#F4F6F6",
     },
+    background: { default: "#eee" },
   },
 
   typography: {

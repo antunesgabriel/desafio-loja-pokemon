@@ -19,7 +19,7 @@ $ sudo vi /etc/hosts
 
 // Set local hosts
 127.0.0.1 local.fire.com
-127.0.0.1 local.water.com
+127.0.0.1 local.flying.com
 127.0.0.1 local.stone.com
 ```
 
@@ -28,13 +28,13 @@ $ sudo vi /etc/hosts
 - 3 - Start project
 
 ```console
-$yarn start:fire // or yarn start:stone // or yarn start:water
+$yarn start:fire // or yarn start:stone // or yarn start:flying
 ```
 
 - 4 - Access project url
 
 http://local.fire.com:3000
 <br />
-http://local.water.com:3000
+http://local.flying.com:3000
 <br />
 http://local.stone.com:3000

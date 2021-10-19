@@ -1,4 +1,5 @@
 {
   "path": "stone",
-  "storeName": "StoneStore"
+  "storeName": "StoneStore",
+  "baseApiUrl": "https://pokeapi.co/api/v2/type/"
 }

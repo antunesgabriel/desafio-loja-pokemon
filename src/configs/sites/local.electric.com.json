@@ -1,0 +1,6 @@
+{
+  "path": "electric",
+  "storeName": "ElectricStore",
+  "baseApiUrl": "https://pokeapi.co/api/v2/type/",
+  "type": "electric"
+}

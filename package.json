@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "start:fire": "HOST='local.fire.com' react-scripts start",
     "start:flying": "HOST='local.flying.com' react-scripts start",
-    "start:stone": "HOST='local.stone.com' react-scripts start"
+    "start:electric": "HOST='local.electric.com' react-scripts start"
   },
   "eslintConfig": {
     "extends": [

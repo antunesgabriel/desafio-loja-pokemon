@@ -9,7 +9,7 @@ import {
   StoreContext,
   ToastProps,
 } from "providers/commons/context";
-import theme from "theme/stone/theme";
+import theme from "theme/electric/theme";
 
 type StoreProviderProps = {
   children: React.ReactNode;

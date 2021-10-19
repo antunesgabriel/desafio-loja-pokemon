@@ -1,5 +1,6 @@
 {
   "path": "fire",
   "storeName": "FireStore",
-  "baseApiUrl": "https://pokeapi.co/api/v2/type/"
+  "baseApiUrl": "https://pokeapi.co/api/v2/type/",
+  "type": "fire"
 }

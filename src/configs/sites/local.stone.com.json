@@ -1,3 +1,4 @@
 {
-  "path": "stone"
+  "path": "stone",
+  "storeName": "StoneStore"
 }

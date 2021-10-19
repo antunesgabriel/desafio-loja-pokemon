@@ -13,7 +13,7 @@ function StoreLayout({ children }: StoreLayoutProps) {
   return (
     <Box className={classes.container}>
       <StoreAppBar />
-      <Container>
+      <Container sx={{ mt: 3 }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Card component="main">{children}</Card>

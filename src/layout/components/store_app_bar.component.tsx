@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import {
   alpha,
   AppBar,
@@ -7,8 +7,13 @@ import {
   Toolbar,
   Typography,
   InputBase,
+  IconButton,
 } from "@mui/material";
-import { Search as SearchIcon } from "@mui/icons-material";
+import {
+  Search as SearchIcon,
+  ShoppingBasket as ShoppingBasketIcon,
+} from "@mui/icons-material";
+import useSDK from "hooks/useSDK";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -18,12 +23,8 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginRight: theme.spacing(2),
-  marginLeft: 0,
   width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
+  marginLeft: theme.spacing(3),
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -50,17 +51,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const StoreAppBar = () => {
+  const { site } = useSDK();
+
   return (
-    <AppBar position="static">
+    <AppBar position="static" elevation={0}>
       <Toolbar>
-        <Typography
-          variant="h6"
-          noWrap
-          component="div"
-          sx={{ display: { xs: "none", sm: "block" } }}
-        >
-          MUI
-        </Typography>
+        <Typography variant="h6">{site.storeName}</Typography>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
@@ -70,7 +66,15 @@ const StoreAppBar = () => {
             inputProps={{ "aria-label": "pesquisar por pokemon" }}
           />
         </Search>
-        <Box sx={{ flexGrow: 1 }} />
+        <Box sx={{ ml: 3, color: "white" }}>
+          <IconButton
+            aria-label="abrir sacola"
+            color="inherit"
+            component="span"
+          >
+            <ShoppingBasketIcon />
+          </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
   );

@@ -66,7 +66,7 @@ const StoreAppBar = () => {
             inputProps={{ "aria-label": "pesquisar por pokemon" }}
           />
         </Search>
-        <Box sx={{ ml: 3, color: "white" }}>
+        <Box sx={{ ml: 3, color: "primary.contrastText" }}>
           <IconButton
             aria-label="abrir sacola"
             color="inherit"

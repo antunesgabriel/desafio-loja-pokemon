@@ -9,6 +9,7 @@ import {
   InputBase,
   IconButton,
   Badge,
+  Hidden,
 } from "@mui/material";
 import {
   Search as SearchIcon,
@@ -65,8 +66,11 @@ const StoreAppBar: FC<{
   return (
     <AppBar position="sticky" elevation={0}>
       <Toolbar>
-        <Typography variant="h6">{site.storeName}</Typography>
-        {showSearchBar && (
+        <Hidden mdDown>
+          <Typography variant="h6">{site.storeName}</Typography>
+        </Hidden>
+
+        {showSearchBar ? (
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -78,6 +82,8 @@ const StoreAppBar: FC<{
               value={searchValue}
             />
           </Search>
+        ) : (
+          <Box flexGrow={1} />
         )}
         <Box sx={{ ml: 3, color: "primary.contrastText" }}>
           <IconButton

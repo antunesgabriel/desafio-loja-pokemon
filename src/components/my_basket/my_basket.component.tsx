@@ -22,7 +22,13 @@ import useStore from "hooks/useStore";
 import PokeMedia from "components/poke_media/poke_media.component";
 
 function MyBasket() {
-  const { basketOpen, toggleBasket, basket, removeFromBasket } = useStore();
+  const {
+    basketOpen,
+    toggleBasket,
+    basket,
+    removeFromBasket,
+    completeCapture,
+  } = useStore();
   const classes = useClasses();
 
   const list = () => (
@@ -80,6 +86,7 @@ function MyBasket() {
               color="success"
               variant="contained"
               disabled={!basket.length}
+              onClick={completeCapture}
             >
               Concluir
             </Button>
@@ -95,7 +102,7 @@ const useClasses = makeStyles((theme: Theme) => ({
     width: "75vw",
 
     [theme.breakpoints.up("md")]: {
-      width: "15vw",
+      width: "20vw",
     },
   },
 }));

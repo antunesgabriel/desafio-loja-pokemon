@@ -16,23 +16,9 @@ export default function useFilterOnInput<T>(
   const [filtered, setFiltered] = useState<T[]>(items);
   const [search, setSearch] = useState("");
 
-  const debounced = useDebounce(search, 500);
-
-  const handleChangeValue = useCallback(
-    ($e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      const { value } = $e.target;
-      setSearch(value);
-    },
-    []
-  );
-
-  useEffect(() => {
-    setFiltered(items);
-  }, [items]);
-
-  useEffect(() => {
-    if (debounced) {
-      if (!search.trim()) {
+  const execFilter = useCallback(
+    (name: string) => {
+      if (!name.trim()) {
         return setFiltered(items);
       }
 
@@ -46,7 +32,7 @@ export default function useFilterOnInput<T>(
               finded = finded[path];
 
               if (idx === pathToFilter.length - 1) {
-                contains = finded.indexOf(search) !== -1;
+                contains = finded.indexOf(name) !== -1;
               }
             } else {
               finded = null;
@@ -56,8 +42,23 @@ export default function useFilterOnInput<T>(
           return contains;
         })
       );
-    }
-  }, [debounced, items, pathToFilter, search]);
+    },
+    [items, pathToFilter]
+  );
+
+  useDebounce(search, 1000, execFilter);
+
+  const handleChangeValue = useCallback(
+    ($e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { value } = $e.target;
+      setSearch(value);
+    },
+    []
+  );
+
+  useEffect(() => {
+    setFiltered(items);
+  }, [items]);
 
   return {
     search,

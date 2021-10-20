@@ -50,7 +50,7 @@ function HomePage(): React.ReactElement {
   return (
     <StoreLayout
       showSearchBar
-      onChangeSerach={handleChangeValue}
+      onSearch={handleChangeValue}
       searchValue={search}
     >
       <Grid container spacing={4}>

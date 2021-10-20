@@ -55,11 +55,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const StoreAppBar: FC<{
   showSearchBar?: boolean;
-  onChangeSerach?: (
-    $e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
+  onSearch?: ($e: any) => void;
   searchValue?: string;
-}> = ({ showSearchBar, onChangeSerach, searchValue }) => {
+}> = ({ showSearchBar, onSearch, searchValue }) => {
   const { basket, toggleBasket } = useStore();
   const { site } = useSDK();
 
@@ -78,7 +76,7 @@ const StoreAppBar: FC<{
             <StyledInputBase
               placeholder="Pesquisar..."
               inputProps={{ "aria-label": "pesquisar por pokemon" }}
-              onChange={onChangeSerach}
+              onInput={onSearch}
               value={searchValue}
             />
           </Search>

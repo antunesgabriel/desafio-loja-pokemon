@@ -8,7 +8,7 @@ import MyBasket from "components/my_basket/my_basket.component";
 type StoreLayoutProps = {
   children: React.ReactNode;
   showSearchBar?: boolean;
-  onChangeSerach?: (
+  onSearch?: (
     $e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   searchValue?: string;
@@ -17,7 +17,7 @@ type StoreLayoutProps = {
 function StoreLayout({
   children,
   showSearchBar,
-  onChangeSerach,
+  onSearch,
   searchValue,
 }: StoreLayoutProps) {
   const classes = useClasses();
@@ -28,7 +28,7 @@ function StoreLayout({
 
       <StoreAppBar
         showSearchBar={showSearchBar}
-        onChangeSerach={onChangeSerach}
+        onSearch={onSearch}
         searchValue={searchValue}
       />
       <Container sx={{ mt: 3 }}>

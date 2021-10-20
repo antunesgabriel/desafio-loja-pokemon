@@ -1,17 +1,23 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-export default function useDebounce(value: string, delay: number) {
-  const [debouncedValue, setDebouncedValue] = useState(value);
+let $event: NodeJS.Timeout;
 
+export default function useDebounce(
+  value: string,
+  delay: number,
+  fn: (text: string) => void
+) {
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
+    if ($event) {
+      clearTimeout($event);
+    }
+
+    $event = setTimeout(() => {
+      fn(value);
     }, delay);
 
     return () => {
-      clearTimeout(handler);
+      clearTimeout($event);
     };
-  }, [value, delay]);
-
-  return debouncedValue;
+  }, [value, delay, fn]);
 }

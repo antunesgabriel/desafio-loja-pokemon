@@ -37,7 +37,7 @@ function HomePage(): React.ReactElement {
     return <PageLoading />;
   }
 
-  if (!isError) {
+  if (isError) {
     return (
       <StoreLayout>
         <Box className={classes.errorWrapper}>

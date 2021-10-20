@@ -137,7 +137,7 @@ function StoreProvider({ children }: StoreProviderProps) {
 
 const styleModal = {
   width: "100%",
-  maxWidth: 300,
+  maxWidth: 360,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,

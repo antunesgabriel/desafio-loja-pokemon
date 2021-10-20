@@ -10,6 +10,7 @@ import {
   ToastProps,
 } from "providers/commons/context";
 import theme from "theme/electric/theme";
+import useBasket from "hooks/useBasket";
 
 type StoreProviderProps = {
   children: React.ReactNode;
@@ -31,6 +32,8 @@ const INITIAL_STATE: ToastProps = {
 function StoreProvider({ children }: StoreProviderProps) {
   const [toast, setToast] = useState<ToastProps>(INITIAL_STATE);
 
+  const { basket, addInBasket, removeFromBasket } = useBasket();
+
   const handleClose = useCallback(() => {
     setToast((old) => ({ ...old, open: false }));
     setToast(INITIAL_STATE);
@@ -39,7 +42,9 @@ function StoreProvider({ children }: StoreProviderProps) {
   return (
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient} contextSharing={true}>
-        <StoreContext.Provider value={{ setToast }}>
+        <StoreContext.Provider
+          value={{ setToast, basket, addInBasket, removeFromBasket }}
+        >
           <Snackbar
             open={toast.open}
             autoHideDuration={6000}

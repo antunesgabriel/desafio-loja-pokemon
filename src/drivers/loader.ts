@@ -17,6 +17,6 @@ const loadSite = (): Site => {
 
 export const site = loadSite();
 
-export function loadStoreProvider(pathComponent: string) {
+export function loadProviderBySite(pathComponent: string) {
   return lazy(() => import("providers/" + site.path + pathComponent));
 }

@@ -4,7 +4,7 @@ import { Pokemon } from "types/pokemon";
 
 import useSDK from "./useSDK";
 
-export default function useBasket() {
+export default function useCreateBasket() {
   const { site } = useSDK();
   const [basket, setBasket] = useState<Pokemon[]>([]);
 

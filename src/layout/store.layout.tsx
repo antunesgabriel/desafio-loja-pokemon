@@ -1,8 +1,9 @@
 import { Box, Card, Container, Grid } from "@mui/material";
+import { memo, useState } from "react";
 import { makeStyles } from "@mui/styles";
-import { memo } from "react";
 
 import StoreAppBar from "./components/store_app_bar.component";
+import MyBasket from "components/my_basket/my_basket.component";
 
 type StoreLayoutProps = {
   children: React.ReactNode;
@@ -23,6 +24,8 @@ function StoreLayout({
 
   return (
     <Box className={classes.container}>
+      <MyBasket />
+
       <StoreAppBar
         showSearchBar={showSearchBar}
         onChangeSerach={onChangeSerach}

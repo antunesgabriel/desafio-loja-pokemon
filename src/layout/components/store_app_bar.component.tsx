@@ -8,12 +8,14 @@ import {
   Typography,
   InputBase,
   IconButton,
+  Badge,
 } from "@mui/material";
 import {
   Search as SearchIcon,
   ShoppingBasket as ShoppingBasketIcon,
 } from "@mui/icons-material";
 import useSDK from "hooks/useSDK";
+import useStore from "hooks/useStore";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,6 +59,7 @@ const StoreAppBar: FC<{
   ) => void;
   searchValue?: string;
 }> = ({ showSearchBar, onChangeSerach, searchValue }) => {
+  const { basket, toggleBasket } = useStore();
   const { site } = useSDK();
 
   return (
@@ -81,8 +84,11 @@ const StoreAppBar: FC<{
             aria-label="abrir sacola"
             color="inherit"
             component="span"
+            onClick={toggleBasket}
           >
-            <ShoppingBasketIcon />
+            <Badge badgeContent={basket.length} color="info">
+              <ShoppingBasketIcon />
+            </Badge>
           </IconButton>
         </Box>
       </Toolbar>

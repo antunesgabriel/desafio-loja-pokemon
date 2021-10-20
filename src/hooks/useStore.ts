@@ -8,15 +8,24 @@ export default function useStore() {
     StoreContext,
     (state) => state.addInBasket
   );
-
   const removeFromBasket = useContextSelector(
     StoreContext,
     (state) => state.removeFromBasket
+  );
+  const basketOpen = useContextSelector(
+    StoreContext,
+    (state) => state.basketOpen
+  );
+  const toggleBasket = useContextSelector(
+    StoreContext,
+    (state) => state.toggleBasket
   );
 
   return {
     basket,
     addInBasket,
     removeFromBasket,
+    toggleBasket,
+    basketOpen,
   };
 }

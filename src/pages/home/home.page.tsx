@@ -63,7 +63,7 @@ function HomePage(): React.ReactElement {
                     disabled={selected}
                     onClick={() => addInBasket(pokemon.pokemon)}
                   >
-                    {selected ? "Adicionado" : "Adicionar"}
+                    {selected ? "Capturado" : "Capturar"}
                   </Button>
                 </CardActions>
               </Card>

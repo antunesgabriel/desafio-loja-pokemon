@@ -1,5 +1,5 @@
 import { Box, Card, Container, Grid } from "@mui/material";
-import { memo, useState } from "react";
+import { memo } from "react";
 import { makeStyles } from "@mui/styles";
 
 import StoreAppBar from "./components/store_app_bar.component";

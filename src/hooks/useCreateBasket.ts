@@ -31,11 +31,16 @@ export default function useCreateBasket() {
     [site]
   );
 
+  const resetBasket = useCallback(() => {
+    setBasket([]);
+    localStorage.removeItem(`${site.type}/basket`);
+  }, [site]);
+
   useEffect(() => {
     const recovery = localStorage.getItem(`${site.type}/basket`);
 
     setBasket(recovery ? JSON.parse(recovery) : []);
   }, [site]);
 
-  return { basket, addInBasket, removeFromBasket };
+  return { basket, addInBasket, removeFromBasket, resetBasket };
 }

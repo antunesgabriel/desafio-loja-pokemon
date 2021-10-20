@@ -20,6 +20,10 @@ export default function useStore() {
     StoreContext,
     (state) => state.toggleBasket
   );
+  const completeCapture = useContextSelector(
+    StoreContext,
+    (state) => state.completeCapture
+  );
 
   return {
     basket,
@@ -27,5 +31,6 @@ export default function useStore() {
     removeFromBasket,
     toggleBasket,
     basketOpen,
+    completeCapture,
   };
 }

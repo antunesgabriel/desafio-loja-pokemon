@@ -36,7 +36,7 @@ function MyBasket() {
       <List
         subheader={
           <ListSubheader component="div" sx={{ marginY: 2 }}>
-            <Typography variant="subtitle2" color="HighlightText">
+            <Typography variant="subtitle2" sx={{ color: "common.black" }}>
               Pokemon Capturados
             </Typography>
             <Divider />
